@@ -15,12 +15,8 @@ class MainButton(pg.sprite.Sprite):
 
     def display(self, screen):
         screen.blit(self.image, self.rect)
-
-<<<<<<< HEAD
-    def getReckt(self):
-=======
+        
     def getRect(self):
->>>>>>> fb25e39 (Basic auto clicker added)
         return self.rect
 
 class AutoClickerButton(pg.sprite.Sprite):
@@ -120,11 +116,7 @@ class App():
                 if pg.mouse.get_pressed()[0] == 1:
                     if not self.lastLeftClickState:
                         for b in self.buttonList:
-<<<<<<< HEAD
-                            if  (b.getReckt().left <= pg.mouse.get_pos()[0] <= b.getReckt().right) and (b.getReckt().top <= pg.mouse.get_pos()[1] <= b.getReckt().bottom):
-=======
                             if  (b.getRect().left <= pg.mouse.get_pos()[0] <= b.getRect().right) and (b.getRect().top <= pg.mouse.get_pos()[1] <= b.getRect().bottom):
->>>>>>> fb25e39 (Basic auto clicker added)
                                 b.callback()
                         self.lastLeftClickState = True
                 else:
