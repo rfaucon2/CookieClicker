@@ -83,11 +83,33 @@ class App():
         self.buttonList.append(self.basicAutoClicker)
         self.autoClickers.append(self.basicAutoClicker)
 
+        # Intermediate auto clicker
+        image = pg.image.load("ressources/upArrow.png")
+        self.intermediateAutoClicker = AutoClickerButton(image, self.upAutoStrength, 300, 350, 1000, 10, 1.85)
+        self.buttonList.append(self.intermediateAutoClicker)
+        self.autoClickers.append(self.intermediateAutoClicker)
+
+        # Advanced auto clicker
+        image = pg.image.load("ressources/upArrow.png")
+        self.advencedAutoClicker = AutoClickerButton(image, self.upAutoStrength, 500, 350, 10000, 100, 2.5)
+        self.buttonList.append(self.advencedAutoClicker)
+        self.autoClickers.append(self.advencedAutoClicker)
+
     def initButtonText(self):
         self.basicAutoClickerText = [self.splatfont20.render("Auto clicker basique", True, [255, 255, 255]),
                                      self.splatfont20.render("Prix: " + str(self.basicAutoClicker.getPrice()), True, [255, 255, 255]),
                                      self.splatfont20.render("Puissance: " + str(self.basicAutoClicker.getStrength()), True, [255, 255, 255]),
                                      self.splatfont20.render("Niveau: " + str(self.basicAutoClicker.getLevel()), True, [255, 255, 255])]
+
+        self.intermediateAutoClickerText = [self.splatfont20.render("Auto clicker intermediaire", True, [255, 255, 255]),
+                                            self.splatfont20.render("Prix: " + str(self.intermediateAutoClicker.getPrice()), True,[255, 255, 255]),
+                                            self.splatfont20.render("Puissance: " + str(self.intermediateAutoClicker.getStrength()),True, [255, 255, 255]),
+                                            self.splatfont20.render("Niveau: " + str(self.intermediateAutoClicker.getLevel()), True,[255, 255, 255])]
+
+        self.advancedAutoClickerText = [self.splatfont20.render("Auto clicker avancé", True, [255, 255, 255]),
+                                     self.splatfont20.render("Prix: " + str(self.advencedAutoClicker.getPrice()), True,[255, 255, 255]),
+                                     self.splatfont20.render("Puissance: " + str(self.advencedAutoClicker.getStrength()),True, [255, 255, 255]),
+                                     self.splatfont20.render("Niveau: " + str(self.advencedAutoClicker.getLevel()), True,[255, 255, 255])]
 
     def initFont(self):
         self.splatfont20 = pg.font.SysFont("ressources/Splatfont.ttf", 20)
@@ -145,6 +167,21 @@ class App():
                 self.screen.blit(self.basicAutoClickerText[i-1], (self.basicAutoClicker.getRect()[0],
                                                              self.basicAutoClicker.getRect()[1] + self.basicAutoClicker.getRect().height + (i*10)+((i-1)*5)))
 
+            self.intermediateAutoClickerText = [self.splatfont20.render("Auto clicker intermediaire", True, [255, 255, 255]),
+                                                self.splatfont20.render("Prix: " + str(self.intermediateAutoClicker.getPrice()), True, [255, 255, 255]),
+                                                self.splatfont20.render("Puissance: " + str(self.intermediateAutoClicker.getStrength()), True,[255, 255, 255]),
+                                                self.splatfont20.render("Niveau: " + str(self.intermediateAutoClicker.getLevel()), True,[255, 255, 255])]
+            for i in range(1, 5):
+                self.screen.blit(self.intermediateAutoClickerText[i - 1], (self.intermediateAutoClicker.getRect()[0],
+                                                                    self.intermediateAutoClicker.getRect()[1] + self.intermediateAutoClicker.getRect().height + (i * 10) + ((i - 1) * 5)))
+
+            self.advancedAutoClickerText = [self.splatfont20.render("Auto clicker avancé", True, [255, 255, 255]),
+                                            self.splatfont20.render("Prix: " + str(self.advencedAutoClicker.getPrice()),True, [255, 255, 255]),
+                                            self.splatfont20.render("Puissance: " + str(self.advencedAutoClicker.getStrength()), True,[255, 255, 255]),
+                                            self.splatfont20.render("Niveau: " + str(self.advencedAutoClicker.getLevel()), True,[255, 255, 255])]
+            for i in range(1, 5):
+                self.screen.blit(self.advancedAutoClickerText[i - 1], (self.advencedAutoClicker.getRect()[0],
+                                                                    self.advencedAutoClicker.getRect()[1] + self.advencedAutoClicker.getRect().height + (i * 10) + ((i - 1) * 5)))
 
             #Update and display the score
             self.cookieCounterText = self.splatfont30.render("Cookie: "+str(self.cookieCounter), True, [255, 255, 255])
