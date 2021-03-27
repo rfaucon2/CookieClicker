@@ -69,7 +69,6 @@ class App():
         self.tickCounter = 0
         self.initFont()
         self.initButtons()
-        self.initButtonText()
 
     def initButtons(self):
         #Main button
